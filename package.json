@@ -1,0 +1,40 @@
+{
+  "name": "f1-2019-packets",
+  "version": "1.0.0",
+  "license": "mit",
+  "main": "index.js",
+  "scripts": {
+    "fmt": "prettier --config .prettierrc --write '**/*'",
+    "lint": "eslint . --ext .js"
+  },
+  "dependencies": {
+    "restructure": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-xo-space": "^0.21.0",
+    "eslint-plugin-flowtype": "^3.11.1",
+    "eslint-plugin-import": "^2.18.0",
+    "husky": "^2.7.0",
+    "lerna": "^3.15.0",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ],
+    "*.*": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
+  }
+}
